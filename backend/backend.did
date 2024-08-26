@@ -1,0 +1,18 @@
+type ShowcaseItem = 
+ record {
+   ctaText: text;
+   description: text;
+   imageUrl: text;
+   title: text;
+ };
+type Feature = 
+ record {
+   description: text;
+   icon: text;
+   title: text;
+ };
+service : {
+  getFeatures: () -> (vec Feature) query;
+  getInfo: () -> (text) query;
+  getShowcaseItems: () -> (vec ShowcaseItem) query;
+}
