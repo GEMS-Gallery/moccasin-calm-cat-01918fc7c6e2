@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEMS - AI-Powered IC Development</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #635bff;
+            --text-color: #0a2540;
+            --text-light: #425466;
+            --background: #ffffff;
+            --background-alt: #f6f9fc;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1110px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo svg {
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a svg {
+            margin-right: 6px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #524af3;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.025em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .features {
+            padding: 80px 0;
+            background-color: var(--background-alt);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .feature {
+            background-color: var(--background);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            margin-bottom: 16px;
+        }
+
+        .feature h3 {
+            font-size: 1.125rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .showcase {
+            padding: 80px 0;
+        }
+
+        .showcase-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 64px;
+        }
+
+        .showcase-content {
+            flex: 1;
+            padding-right: 48px;
+        }
+
+        .showcase-image {
+            flex: 1;
+        }
+
+        .showcase-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .showcase-content p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+
+        footer {
+            background-color: var(--background-alt);
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        footer a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 64px 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .showcase-item {
+                flex-direction: column;
+            }
+
+            .showcase-content {
+                padding-right: 0;
+                margin-bottom: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    GEMS
+                </a>
+                <div class="nav-links">
+                    <a href="#features">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 5H20M4 12H20M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Features
+                    </a>
+                    <a href="#showcase">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Showcase
+                    </a>
+                    <a href="#" class="cta-button">Get started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Build on the IC with AI</h1>
+                <p>GEMS accelerates your Internet Computer projects with AI-assisted development, seamless deployment, and powerful management tools.</p>
+                <a href="#" class="cta-button">Start building</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 16.5C14.4853 16.5 16.5 14.4853 16.5 12C16.5 9.51472 14.4853 7.5 12 7.5C9.51472 7.5 7.5 9.51472 7.5 12C7.5 14.4853 9.51472 16.5 12 16.5Z" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 2V4M12 20V22M4.93 4.93L6.34 6.34M17.66 17.66L19.07 19.07M2 12H4M20 12H22M4.93 19.07L6.34 17.66M17.66 6.34L19.07 4.93" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>AI-Powered Development</h3>
+                        <p>Generate Motoko code and entire projects using natural language prompts.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12H18L15 21L9 3L6 12H2" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Instant Deployment</h3>
+                        <p>Deploy to the Internet Computer with a single click using our playground canisters.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 16V8C20.9996 7.64927 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64927 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.27002 6.96L12 12.01L20.73 6.96" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 22.08V12" stroke="#635bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Canister Management</h3>
+                        <p>Easily manage your canisters from playground experiments to production deployments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="showcase" class="showcase">
+            <div class="container">
+                <div class="showcase-item">
+                    <div class="showcase-content">
+                        <h2>AI-Assisted Development</h2>
+                        <p>Describe your project in natural language, and watch as GEMS generates functional Motoko code. Accelerate your development process and bring your ideas to life faster than ever.</p>
+                        <a href="#" class="cta-button">Try it now</a>
+                    </div>
+                    <div class="showcase-image">
+                        <img src="/api/placeholder/600/400" alt="AI-Assisted Development">
+                    </div>
+                </div>
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <img src="/api/placeholder/600/400" alt="Seamless Deployment">
+                    </div>
+                    <div class="showcase-content">
+                        <h2>Seamless Deployment</h2>
+                        <p>Deploy your projects to the Internet Computer with just one click. GEMS handles the complexities, allowing you to focus on building great applications.</p>
+                        <a href="#" class="cta-button">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GEMS. All rights reserved.</p>
+            <div>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Docs</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
